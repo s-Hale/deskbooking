@@ -10,15 +10,23 @@ const DeskMap = () => {
     const [numberColumns, setNumberColumns] = useState(8);
     const [groupGapOne, setGroupGapOne] = useState(2);
     const [groupGapTwo, setGroupGapTwo] = useState(6);
+    const [groupGapThree, setGroupGapThree] = useState();
+    const [groupGapFour, setGroupGapFour] = useState();
     const [chosenDesk, setChosenDesk] = useState();
     const [summaryPhrase, setSummaryPhrase] = useState('');
 
     const StyledDesks = styled.div`
      & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
-        margin-right: 24px
+        margin-right: 26px
      }
      & > span:nth-of-type(${numberColumns}n + ${groupGapTwo}) {
-        margin-right: 24px
+        margin-right: 26px
+     }
+     & > span:nth-of-type(${numberColumns}n + ${groupGapThree}) {
+        margin-right: 26px
+     }
+     & > span:nth-of-type(${numberColumns}n + ${groupGapFour}) {
+        margin-right: 26px
      }
      grid-template-columns: repeat(${numberColumns}, min-content);
     `;
@@ -53,10 +61,14 @@ const DeskMap = () => {
                 numberColumns={numberColumns}
                 groupGapOne={groupGapOne}
                 groupGapTwo={groupGapTwo}
+                groupGapThree={groupGapThree}
+                groupGapFour={groupGapFour}
                 setNumberHeight={setNumberHeight}
                 setNumberColumns={setNumberColumns}
                 setGroupGapOne={setGroupGapOne}
                 setGroupGapTwo={setGroupGapTwo}
+                setGroupGapThree={setGroupGapThree}
+                setGroupGapFour={setGroupGapFour}
             />
             <span className="mt-2 text-lg">{summaryPhrase}</span>
         </>

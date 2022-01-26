@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const NoArrowInput = styled.input`
@@ -21,8 +21,18 @@ const UserInputForm = (
         groupGapOne,
         setGroupGapOne,
         groupGapTwo,
-        setGroupGapTwo }) => {
+        setGroupGapTwo,
+        groupGapThree,
+        setGroupGapThree,
+        groupGapFour,
+        setGroupGapFour,
+
+
+    }) => {
+    const [extraColumns, setExtraColumns] = useState(false);
     const inputPairStyling = "flex justify-between items-center w-2/5"
+
+
     return (
         <div className="flex flex-col p-2 w-2/5 border border-gray-300 rounded-md">
 
@@ -61,6 +71,22 @@ const UserInputForm = (
                     </NoArrowInput>
                 </div>
             </div>
+
+            <div className="flex p-1 justify-center"><button onClick={() => setExtraColumns(!extraColumns)} className="mt-2 py-2 px-3 bg-blue-50 rounded-xl hover:bg-blue-100 w-auto">{extraColumns ? 'Hide' : 'Additional spacing'}</button></div>
+
+            {extraColumns && (<div className="mt-2 justify-between flex items-center">
+                <div className={inputPairStyling}>
+                    <p>Insert space at column</p>
+                    <NoArrowInput type="number" value={groupGapThree} onChange={(e) => setGroupGapThree(e.target.value)} className="text-center w-14 p-1 border border-cyan-800 rounded-md">
+                    </NoArrowInput>
+                </div>
+                <div className={inputPairStyling}>
+                    <p>Insert space at column</p>
+                    <NoArrowInput type="number" value={groupGapFour} onChange={(e) => setGroupGapFour(e.target.value)} className="text-center w-14 p-1 border border-cyan-800 rounded-md">
+                    </NoArrowInput>
+                </div>
+
+            </div>)}
         </div>
     )
 }
