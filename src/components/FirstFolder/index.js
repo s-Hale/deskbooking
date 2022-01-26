@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 const DeskMap = () => {
-    const [numberHeight, setNumberHeight] = useState(24);
+    const [numberDesks, setNumberDesks] = useState(24);
     const [numberColumns, setNumberColumns] = useState(8);
     const [groupGapOne, setGroupGapOne] = useState(2);
     const [groupGapTwo, setGroupGapTwo] = useState(6);
@@ -37,33 +37,48 @@ const DeskMap = () => {
     }
 
 
-    const desks = Array.from({ length: numberHeight }, (_, i) => i)
+    const desks = Array.from({ length: numberDesks }, (_, i) => i)
+    const occupied = [7, 18, 22];
 
     return (
         <>
-            <StyledDesks className="mb-2 mt-16 desks grid rounded-md p-2 border border-gray-300">
+            <div className="flex flex-col w-3/5 mt-28">
+              <h2 className="mb-4 font-bold text-4xl text-gray-700">Set up an area</h2>
+              <div className="w-full border-t-2 border-gray-300"></div>
+            </div>
+
+
+            <StyledDesks className="justify-center mb-2 mt-12 desks grid rounded-md p-2 border border-gray-300">
                 {desks.map(seat => (
+
               <span
                 key={seat}
-                className={Number(chosenDesk) === seat ? 'bg-cyan-600 m-1 rounded-md' : 'bg-cyan-600 bg-opacity-20 m-1 rounded-md'}
+                        className={Number(chosenDesk) === seat ?
+                            'bg-cyan-600 m-1 rounded-md' :
+                            'm-1 rounded-md'}
                 >
                     <button
-                        value={seat}
-                        disabled={seat.occupied}
-                        onClick={(e) => handleDeskSelection(e)}
-                        className="w-24 h-12 border border-cyan-900 border-opacity-60 rounded-md hover:bg-cyan-600 cursor-pointer text-xs text-gray-800 flex items-center justify-center">{seat}</button>
+                            value={seat}
+                            disabled={occupied.includes(seat)}
+                            onClick={(e) => handleDeskSelection(e)}
+                            className={`${occupied.includes(seat) ?
+                                'bg-gray-200 cursor-not-allowed text-gray-500 text-opacity-60' :
+                                'hover:bg-cyan-600 hover:scale-105 bg-cyan-600 bg-opacity-20 cursor-pointer border-gray-400 border-opacity-80 text-gray-800'}
+                                w-24 h-12 border rounded-md text-xs flex items-center justify-center`}>
+                            {seat}
+                    </button>
                 </span>
              )
                 )}
             </StyledDesks>
             <UserInputForm
-                numberHeight={numberHeight}
+                numberDesks={numberDesks}
                 numberColumns={numberColumns}
                 groupGapOne={groupGapOne}
                 groupGapTwo={groupGapTwo}
                 groupGapThree={groupGapThree}
                 groupGapFour={groupGapFour}
-                setNumberHeight={setNumberHeight}
+                setNumberDesks={setNumberDesks}
                 setNumberColumns={setNumberColumns}
                 setGroupGapOne={setGroupGapOne}
                 setGroupGapTwo={setGroupGapTwo}

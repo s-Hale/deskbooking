@@ -14,8 +14,8 @@ const NoArrowInput = styled.input`
 `;
 
 const UserInputForm = (
-    { numberHeight,
-        setNumberHeight,
+    { numberDesks,
+        setNumberDesks,
         numberColumns,
         setNumberColumns,
         groupGapOne,
@@ -34,16 +34,16 @@ const UserInputForm = (
 
 
     return (
-        <div className="flex flex-col p-2 w-2/5 border border-gray-300 rounded-md">
+        <div className="flex flex-col p-2 w-2/5 border border-gray-200 rounded-md">
 
             <div className="flex justify-between items-center">
                 <div className={inputPairStyling}>
                     <p>Number of Desks</p>
                 <NoArrowInput
                     type="number"
-                    value={numberHeight}
+                    value={numberDesks}
                     min="2"
-                    onChange={(e) => setNumberHeight(e.target.value)}
+                    onChange={(e) => setNumberDesks(e.target.value)}
                     className="text-center w-14 p-1 border border-cyan-800 rounded-md">
                     </NoArrowInput>
                 </div>
