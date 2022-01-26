@@ -30,25 +30,23 @@ const DeskMap = () => {
 
 
     const desks = Array.from({ length: numberHeight }, (_, i) => i)
+
     return (
         <>
-            <StyledDesks className="mt-16 desks grid rounded-md p-2">
-            {desks.map(seat =>  (
+            <StyledDesks className="mb-2 mt-16 desks grid rounded-md p-2 border border-gray-300">
+                {desks.map(seat => (
               <span
-                tabIndex="0"
                 key={seat}
-                className={Number(chosenDesk) === seat ? 'bg-cyan-600 m-1 rounded-md' : 'bg-blue-50 m-1 rounded-md'}
+                className={Number(chosenDesk) === seat ? 'bg-cyan-600 m-1 rounded-md' : 'bg-cyan-600 bg-opacity-20 m-1 rounded-md'}
                 >
                     <button
                         value={seat}
+                        disabled={seat.occupied}
                         onClick={(e) => handleDeskSelection(e)}
-                        className="w-24 h-12 border border-cyan-900 rounded-md hover:bg-cyan-600 cursor-pointer text-xs text-gray-800 flex items-center justify-center">{seat}</button>
+                        className="w-24 h-12 border border-cyan-900 border-opacity-60 rounded-md hover:bg-cyan-600 cursor-pointer text-xs text-gray-800 flex items-center justify-center">{seat}</button>
                 </span>
              )
                 )}
-
-
-
             </StyledDesks>
             <UserInputForm
                 numberHeight={numberHeight}
