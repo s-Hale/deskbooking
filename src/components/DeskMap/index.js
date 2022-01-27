@@ -30,6 +30,7 @@ const DeskMap = () => {
      & > span:nth-of-type(${numberColumns}n + ${groupGapFour}) {
         margin-right: 26px
      }
+
      grid-template-columns: repeat(${numberColumns}, min-content);
     `;
 
@@ -37,7 +38,6 @@ const DeskMap = () => {
         setChosenDesk(e.target.value)
         setSummaryPhrase(`You have selected desk ${e.target.value}.`)
     }
-
 
     const desks = Array.from({ length: numberDesks }, (_, i) => i)
     const occupied = [7, 18, 22];
@@ -50,7 +50,6 @@ const DeskMap = () => {
             </div>
             <div className="flex w-3/5">
                 <AreaName areaName={areaName} setAreaName={setAreaName}></AreaName>
-
             </div>
             <StyledDesks className="justify-center mb-2 mt-2 desks grid rounded-md p-2 border border-gray-300">
                 {desks.map(seat => (

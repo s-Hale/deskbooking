@@ -12,12 +12,12 @@ const AreaName = ({areaName, setAreaName}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-setShowInput(false)
+        setShowInput(false)
     };
 
     const handleEdit = (e) => {
         e.preventDefault()
-setShowInput(true)
+        setShowInput(true)
     };
 
 

@@ -1,12 +1,12 @@
 
 import React from 'react';
-import DeskMap from './components/FirstFolder/index';
+import Selection from './components/Selection/index'
 
 const App =() => {
   return (
     <div className="App">
       <header className="min-h-screen flex flex-col items-center">
-<DeskMap/>
+        <Selection/>
       </header>
     </div>
   );

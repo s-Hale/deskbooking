@@ -42,7 +42,8 @@ const UserInputForm = (
                 <NoArrowInput
                     type="number"
                     value={numberDesks}
-                    min="2"
+                        min="2"
+                        max="75"
                     onChange={(e) => setNumberDesks(e.target.value)}
                     className="text-center w-14 p-1 border border-cyan-800 rounded-md">
                     </NoArrowInput>
@@ -51,7 +52,8 @@ const UserInputForm = (
                     <p>Divided into columns</p>
                 <NoArrowInput
                     type="number"
-                    min="1"
+                        min="1"
+                        max="10"
                     value={numberColumns}
                     onChange={(e) => setNumberColumns(e.target.value)}
                     className="text-center w-14 p-1 border border-cyan-800 rounded-md">
