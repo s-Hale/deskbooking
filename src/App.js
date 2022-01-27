@@ -1,14 +1,27 @@
 
 import React from 'react';
-import Selection from './components/Selection/index'
+import Selection from './components/Selection/index';
+import DeskMap from './components/DeskMap/index';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 const App =() => {
   return (
+    <Router>
     <div className="App">
-      <header className="min-h-screen flex flex-col items-center">
-        <Selection/>
-      </header>
-    </div>
+      {/* <header className="min-h-screen flex flex-col items-center">
+        {/* <Selection/> */}
+      {/* </header> */}
+      </div>
+      <Routes>
+        <Route exact path="/" element={<Selection/>}/>
+        <Route exact path="/create" element={<DeskMap />}/>
+      </Routes>
+      </Router>
   );
 }
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import UserInputForm from '../UserInputForm/'
 import AreaName from '../AreaName'
 import styled from 'styled-components';
-
+import {Link} from "react-router-dom";
 
 
 const DeskMap = () => {
@@ -43,7 +43,7 @@ const DeskMap = () => {
     const occupied = [7, 18, 22];
 
     return (
-        <>
+        <div className="min-h-screen flex flex-col items-center">
             <div className="flex flex-col w-3/5 mt-28">
               <h2 className="mb-4 font-bold text-4xl text-gray-700">Set up an area</h2>
               <div className="w-full border-t-2 border-gray-300"></div>
@@ -89,7 +89,8 @@ const DeskMap = () => {
                 setGroupGapFour={setGroupGapFour}
             />
             <span className="mt-2 text-lg">{summaryPhrase}</span>
-        </>
+            <Link to="/" className="font-bold text-lg text-cyan-800">Back to selection</Link>
+        </div>
     )
 }
 

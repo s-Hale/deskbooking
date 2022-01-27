@@ -2,6 +2,8 @@
 import React from 'react';
 import Desk from '../../assets/desk.png'
 
+import {Link} from "react-router-dom";
+
 const Selection = () => {
     const buttonStyle = 'h-64 hover:bg-blue-200 cursor-pointer pt-8 mx-3 border border-gray-500 rounded-md w-60 flex flex-col items-center justify-between';
 
@@ -21,14 +23,13 @@ const Selection = () => {
                         </div>
 
                 </div>
-                <div className={buttonStyle}>
-              <i class="fa fa-th" style={{ fontSize: '3.5rem', opacity: 80}}></i>
+                <Link className={buttonStyle} to="/create">
+                <i class="fa fa-th" style={{ fontSize: '3.5rem', opacity: 80}}></i>
                     <h6 className="font-bold text-xl">Set up area</h6>
                     <div className="mt-6 h-20 flex items-center">
-
                         <p className="text-center">Create a floor map of your workspace to help employees choose a desk</p>
                         </div>
-                </div>
+                </Link>
                 </div>
         </div>
     )
