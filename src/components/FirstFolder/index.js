@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import UserInputForm from '../UserInputForm/'
+import AreaName from '../AreaName'
 import styled from 'styled-components';
 
 
@@ -14,6 +15,7 @@ const DeskMap = () => {
     const [groupGapFour, setGroupGapFour] = useState();
     const [chosenDesk, setChosenDesk] = useState();
     const [summaryPhrase, setSummaryPhrase] = useState('');
+    const [areaName, setAreaName] = useState('')
 
     const StyledDesks = styled.div`
      & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
@@ -46,9 +48,11 @@ const DeskMap = () => {
               <h2 className="mb-4 font-bold text-4xl text-gray-700">Set up an area</h2>
               <div className="w-full border-t-2 border-gray-300"></div>
             </div>
+            <div className="flex w-3/5">
+                <AreaName areaName={areaName} setAreaName={setAreaName}></AreaName>
 
-
-            <StyledDesks className="justify-center mb-2 mt-12 desks grid rounded-md p-2 border border-gray-300">
+            </div>
+            <StyledDesks className="justify-center mb-2 mt-2 desks grid rounded-md p-2 border border-gray-300">
                 {desks.map(seat => (
 
               <span
