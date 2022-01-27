@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/deskbooking/static/css/main.739f8d99.css",
+    "main.js": "/deskbooking/static/js/main.f3181726.js",
+    "index.html": "/deskbooking/index.html",
+    "main.739f8d99.css.map": "/deskbooking/static/css/main.739f8d99.css.map",
+    "main.f3181726.js.map": "/deskbooking/static/js/main.f3181726.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.739f8d99.css",
+    "static/js/main.f3181726.js"
+  ]
+}
