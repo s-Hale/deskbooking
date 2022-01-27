@@ -13,9 +13,6 @@ const App =() => {
   return (
     <Router>
     <div className="App">
-      {/* <header className="min-h-screen flex flex-col items-center">
-        {/* <Selection/> */}
-      {/* </header> */}
       </div>
       <Routes>
         <Route exact path="/" element={<Selection/>}/>

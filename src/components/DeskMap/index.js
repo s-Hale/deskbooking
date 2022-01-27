@@ -46,33 +46,31 @@ const DeskMap = () => {
         <div className="min-h-screen flex flex-col items-center">
             <div className="flex flex-col w-3/5 mt-28">
               <h2 className="mb-4 font-bold text-4xl text-gray-700">Set up an area</h2>
-              <div className="w-full border-t-2 border-gray-300"></div>
+                <div className="w-full border-t-2 border-gray-300"></div>
             </div>
             <div className="flex w-3/5">
                 <AreaName areaName={areaName} setAreaName={setAreaName}></AreaName>
             </div>
             <StyledDesks className="justify-center mb-2 mt-2 desks grid rounded-md p-2 border border-gray-300">
                 {desks.map(seat => (
-
-              <span
-                key={seat}
-                        className={Number(chosenDesk) === seat ?
-                            'bg-cyan-600 m-1 rounded-md' :
-                            'm-1 rounded-md'}
-                >
+                  <span
+                    key={seat}
+                    className={Number(chosenDesk) === seat ?
+                      'bg-cyan-600 m-1 rounded-md' :
+                      'm-1 rounded-md'}
+                    >
                     <button
-                            value={seat}
-                            disabled={occupied.includes(seat)}
-                            onClick={(e) => handleDeskSelection(e)}
-                            className={`${occupied.includes(seat) ?
-                                'bg-gray-200 cursor-not-allowed text-gray-500 text-opacity-60' :
-                                'hover:bg-cyan-600 hover:scale-105 bg-cyan-600 bg-opacity-20 cursor-pointer border-gray-400 border-opacity-80 text-gray-800'}
-                                w-24 h-12 border rounded-md text-xs flex items-center justify-center`}>
+                        value={seat}
+                        disabled={occupied.includes(seat)}
+                        onClick={(e) => handleDeskSelection(e)}
+                        className={`${occupied.includes(seat) ?
+                            'bg-gray-200 cursor-not-allowed text-gray-500 text-opacity-60' :
+                            'hover:bg-cyan-600 hover:scale-105 bg-cyan-600 bg-opacity-20 cursor-pointer border-gray-400 border-opacity-80 text-gray-800'}
+                            w-24 h-12 border rounded-md text-xs flex items-center justify-center`}>
                             {seat}
                     </button>
                 </span>
-             )
-                )}
+             ))}
             </StyledDesks>
             <UserInputForm
                 numberDesks={numberDesks}
