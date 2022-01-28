@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import {Link} from "react-router-dom";
 
 
-const DeskMap = ({incomingAreaName, mockData, fixedView}) => {
+const DeskMap = ({incomingAreaName, mockData, fixedView, setLoading, setBookingDetails}) => {
     const [numberDesks, setNumberDesks] = useState(24);
     const [numberColumns, setNumberColumns] = useState(mockData?.numberColumns || 8);
     const [groupGapOne, setGroupGapOne] = useState(mockData?.groupGapOne || 2);
@@ -15,7 +15,6 @@ const DeskMap = ({incomingAreaName, mockData, fixedView}) => {
     const [groupGapThree, setGroupGapThree] = useState(mockData?.groupGapThree || 0);
     const [groupGapFour, setGroupGapFour] = useState(mockData?.groupGapFour || 0);
     const [chosenDesk, setChosenDesk] = useState();
-    // const [summaryPhrase, setSummaryPhrase] = useState('');
     const [areaName, setAreaName] = useState('');
 
     const StyledDesks = styled.div`
@@ -89,7 +88,7 @@ const DeskMap = ({incomingAreaName, mockData, fixedView}) => {
                 setGroupGapTwo={setGroupGapTwo}
                 setGroupGapThree={setGroupGapThree}
                 setGroupGapFour={setGroupGapFour}
-            /> : <UserBookingFields chosenDesk={chosenDesk}/>}
+            /> : <UserBookingFields chosenDesk={chosenDesk} setLoading={setLoading} setBookingDetails={setBookingDetails}/>}
             <Link to="/" className="font-bold text-lg text-cyan-800 mt-4">Back to selection</Link>
         </div>
     )

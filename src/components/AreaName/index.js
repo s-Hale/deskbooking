@@ -36,8 +36,8 @@ const AreaName = ({areaName, setAreaName}) => {
             </div>
 
             <div className="flex items-center">
-                <button className="py-1 px-3 rounded-md border-2 border-cyan-600 border-opacity-90 bg-cyan-600 bg-opacity-90 text-white w-24 font-bold hover:bg-cyan-800">Save</button>
-                <button className="ml-2 py-1 px-3 rounded-md border-2 border-cyan-700 text-cyan-700 w-24 font-bold hover:bg-cyan-50">Cancel</button>
+                <button className="py-1 px-3 rounded-md border-2 border-cyan-800 bg-cyan-800 text-white w-24 font-bold hover:bg-cyan-700 hover:border-cyan-700">Save</button>
+                <button className="ml-2 py-1 px-3 rounded-md border-2 border-cyan-700 text-cyan-700 w-24 font-bold hover:bg-blue-50">Cancel</button>
             </div>
 
 
