@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import UserInputForm from '../UserInputForm/'
+import UserBookingFields from '../UserBookingFields'
 import AreaName from '../AreaName'
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
@@ -14,9 +15,9 @@ const DeskMap = ({incomingAreaName, mockData, fixedView}) => {
     const [groupGapThree, setGroupGapThree] = useState(mockData?.groupGapThree || 0);
     const [groupGapFour, setGroupGapFour] = useState(mockData?.groupGapFour || 0);
     const [chosenDesk, setChosenDesk] = useState();
-    const [summaryPhrase, setSummaryPhrase] = useState('');
-    const [areaName, setAreaName] = useState('')
-console.log(mockData)
+    // const [summaryPhrase, setSummaryPhrase] = useState('');
+    const [areaName, setAreaName] = useState('');
+
     const StyledDesks = styled.div`
      & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
         margin-right: 26px
@@ -35,10 +36,8 @@ console.log(mockData)
     `;
 
     const handleDeskSelection = (e) => {
-
             setChosenDesk(e.target.value)
-            setSummaryPhrase(`You have selected desk ${e.target.value}.`)
-
+            // setSummaryPhrase(`You have selected desk ${e.target.value}.`)
     }
 
     const desks = mockData?.desks || Array.from({ length: numberDesks }, (_, i) => i)
@@ -46,7 +45,7 @@ console.log(mockData)
 
     return (
         <div className="min-h-screen flex flex-col items-center">
-             {!fixedView && (<div className="flex flex-col w-3/5 mt-16">
+             {!fixedView && (<div className="flex flex-col w-3/5 mt-20">
                         <h2 className="mb-4 font-bold text-4xl text-gray-700">Set up an area</h2>
                         <div className="w-full border-t-2 border-gray-300"></div>
             </div>
@@ -70,14 +69,14 @@ console.log(mockData)
                         onClick={(e) => handleDeskSelection(e)}
                         className={`${occupied?.includes(seat) ?
                             'bg-gray-200 cursor-not-allowed text-gray-500 text-opacity-60' :
-                            `${fixedView && 'hover:bg-cyan-600 hover:scale-105'} bg-blue-300 bg-opacity-20 cursor-pointer border-gray-400 border-opacity-80 text-gray-800`}
+                            `${fixedView && 'hover:bg-cyan-600 hover:scale-105 cursor-pointer'} bg-blue-300 bg-opacity-20 border-gray-400 border-opacity-80 text-gray-800`}
                             w-24 h-12 border rounded-md text-xs flex items-center justify-center`}>
                             {seat}
                     </button>
                 </span>
              ))}
             </StyledDesks>
-            {!fixedView &&<UserInputForm
+            {!fixedView ? <UserInputForm
                 numberDesks={numberDesks}
                 numberColumns={numberColumns}
                 groupGapOne={groupGapOne}
@@ -90,9 +89,8 @@ console.log(mockData)
                 setGroupGapTwo={setGroupGapTwo}
                 setGroupGapThree={setGroupGapThree}
                 setGroupGapFour={setGroupGapFour}
-            />}
-            <span className="mt-2 text-lg">{summaryPhrase}</span>
-            <Link to="/" className="font-bold text-lg text-cyan-800">Back to selection</Link>
+            /> : <UserBookingFields chosenDesk={chosenDesk}/>}
+            <Link to="/" className="font-bold text-lg text-cyan-800 mt-4">Back to selection</Link>
         </div>
     )
 }

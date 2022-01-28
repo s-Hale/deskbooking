@@ -7,7 +7,7 @@ const Selection = () => {
     const buttonStyle = 'h-68 hover:bg-blue-200 cursor-pointer pt-8 pb-2 mx-3 border-2 border-blue-900 border-opacity-80 rounded-md w-60 flex flex-col items-center justify-between';
 
     return (
-        <div className="mt-28 flex flex-col justify-center items-center">
+        <div className="mt-20 flex flex-col justify-center items-center">
             <div className="flex flex-col w-3/5">
                 <h2 className="mb-4 font-bold text-4xl text-gray-700">Desk reservation</h2>
                     <div className="w-full border-t-2 border-gray-300"></div>

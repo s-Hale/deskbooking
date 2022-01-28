@@ -45,19 +45,14 @@ const BookingForm = () => {
 
 
     return (
-        <div className="mt-28 flex flex-col justify-center items-center">
+        <div className="mt-20 flex flex-col justify-center items-center">
             <div className="flex flex-col w-3/5">
                 <h2 className="mb-4 font-bold text-4xl text-gray-700">Book a desk</h2>
                     <div className="w-full border-t-2 border-gray-300"></div>
                 </div>
-
             <div className="flex flex-col w-3/5 mb-4">
                 <DeskMap incomingAreaName={areaName} mockData={dataToSend(areaName)} fixedView/>
             </div>
-
-
-
-
             <Link to="/" className="font-bold text-lg text-cyan-800">Back to selection</Link>
         </div>
     )
