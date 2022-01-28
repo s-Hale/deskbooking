@@ -44,7 +44,7 @@ const DeskMap = () => {
 
     return (
         <div className="min-h-screen flex flex-col items-center">
-            <div className="flex flex-col w-3/5 mt-28">
+            <div className="flex flex-col w-3/5 mt-16">
               <h2 className="mb-4 font-bold text-4xl text-gray-700">Set up an area</h2>
                 <div className="w-full border-t-2 border-gray-300"></div>
             </div>
@@ -65,7 +65,7 @@ const DeskMap = () => {
                         onClick={(e) => handleDeskSelection(e)}
                         className={`${occupied.includes(seat) ?
                             'bg-gray-200 cursor-not-allowed text-gray-500 text-opacity-60' :
-                            'hover:bg-cyan-600 hover:scale-105 bg-cyan-600 bg-opacity-20 cursor-pointer border-gray-400 border-opacity-80 text-gray-800'}
+                            'hover:bg-cyan-600 hover:scale-105 bg-blue-300 bg-opacity-20 cursor-pointer border-gray-400 border-opacity-80 text-gray-800'}
                             w-24 h-12 border rounded-md text-xs flex items-center justify-center`}>
                             {seat}
                     </button>

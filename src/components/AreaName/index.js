@@ -21,8 +21,11 @@ const AreaName = ({areaName, setAreaName}) => {
         setShowInput(true)
     };
 
+
+
     return (
-        <div className="mt-2 flex items-center">
+        <div className="mt-2 flex items-center w-full justify-between">
+            <div className="flex items-center">
             <label className="text-gray-500 font-bold text-lg mr-3 my-2.5">Area name:</label>
             {!showInput && <h2 className="text-cyan-800 font-bold text-xl">{areaName}</h2>}
             <form onSubmit = {handleSubmit}>
@@ -30,6 +33,14 @@ const AreaName = ({areaName, setAreaName}) => {
                 {showInput && <StyledSave type='submit' className="ml-2 p-1.5 font-bold text-cyan-900" >save</StyledSave>}
                 {!showInput && <button onClick={handleEdit} className="ml-8 p-1"> <i class="fa fa-pencil" style={{fontSize:'24px', color:'#1b3447'}}></i></button>}
             </form>
+            </div>
+
+            <div className="flex items-center">
+                <button className="py-1 px-3 rounded-md border-2 border-cyan-600 border-opacity-90 bg-cyan-600 bg-opacity-90 text-white w-24 font-bold hover:bg-cyan-800">Save</button>
+                <button className="ml-2 py-1 px-3 rounded-md border-2 border-cyan-700 text-cyan-700 w-24 font-bold hover:bg-cyan-50">Cancel</button>
+            </div>
+
+
         </div>
     )
 }
