@@ -13,7 +13,7 @@ const Selection = () => {
                     <div className="w-full border-t-2 border-gray-300"></div>
             </div>
             <div className="flex w-3/5 mt-6">
-                <Link className={buttonStyle} to="/book">
+                <Link className={buttonStyle} to="/book-area">
                     <div className="w-14"><img className="mb-1 opacity-90" src={Desk} alt="desk"/></div>
                         <h6 className="font-bold text-xl">Book a desk</h6>
                             <div className="mt-6 h-20 flex items-center">

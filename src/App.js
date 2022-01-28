@@ -2,7 +2,8 @@
 import React from 'react';
 import Selection from './components/Selection/index';
 import DeskMap from './components/DeskMap/index';
-import BookDesk from './components/BookDesk/index'
+import BookingAreaSelect from './components/BookingAreaSelect/index'
+import BookingForm from './components/BookingForm/index'
 
 import {
   BrowserRouter as Router,
@@ -17,7 +18,9 @@ const App =() => {
       <Routes>
         <Route exact path="/" element={<Selection/>}/>
         <Route exact path="/create" element={<DeskMap />} />
-        <Route exact path="/book" element={<BookDesk />}/>
+          <Route exact path="/book-area" element={<BookingAreaSelect />} />
+          <Route exact path="/book-form" element={<BookingForm />}/>
+
       </Routes>
       </div>
 
