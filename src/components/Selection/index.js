@@ -4,7 +4,7 @@ import Desk from '../../assets/desk.png'
 import {Link} from "react-router-dom";
 
 const Selection = () => {
-    const buttonStyle = 'h-68 hover:bg-blue-200 cursor-pointer pt-8 pb-2 mx-3 border-2 border-blue-900 border-opacity-80 rounded-md w-60 flex flex-col items-center justify-between';
+    const buttonStyle = 'h-68 hover:bg-blue-100 cursor-pointer pt-8 pb-2 mx-3 border-2 border-gray-400 rounded-md w-60 flex flex-col items-center justify-between';
 
     return (
         <div className="mt-20 flex flex-col justify-center items-center">
