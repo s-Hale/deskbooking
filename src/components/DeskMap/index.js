@@ -3,6 +3,7 @@ import UserInputForm from "../UserInputForm/";
 import UserBookingFields from "../UserBookingFields";
 import BookingSummary from "../BookingSummary";
 import AreaName from "../AreaName";
+import SetupSuccess from "../SetupSuccess/";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -28,6 +29,8 @@ const DeskMap = ({
   const [onDate, setOnDate] = useState("");
   const [fromTime, setFromTime] = useState("");
   const [toTime, setToTime] = useState("");
+  const [setupLoading, setSetupLoading] = useState(false);
+  const [showSetupSuccess, setShowSetupSuccess] = useState(false)
 
   const StyledDesks = styled.div`
     & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
@@ -50,81 +53,94 @@ const DeskMap = ({
     setChosenDesk(e.target.value);
   };
 
+  if (setupLoading) {
+    setTimeout(() => {
+      setSetupLoading(false);
+      setShowSetupSuccess(true);
+    }, 2000);
+  }
+
   const desks =
     mockData?.desks || Array.from({ length: numberDesks }, (_, i) => i);
   const occupied = mockData?.occupied;
 
   return (
     <div className="flex flex-col items-center">
-      {!fixedView && (
-        <div className="flex flex-col w-3/5 mt-8">
-          <h2 className="mb-4 text-4xl font-bold text-gray-700">
-            Set up an area
-          </h2>
-          <div className="w-full border-t-2 border-gray-300"></div>
-        </div>
-      )}
-      {!fixedView ? (
-        <div className="flex w-3/5">
-          <AreaName areaName={areaName} setAreaName={setAreaName}></AreaName>
-        </div>
-      ) : (
-        <h2 className="text-xl font-bold text-textColor">{incomingAreaName}</h2>
-      )}
-
-      <div className="flex justify-between p-1 mt-3 min-w-60 max-w-90">
-        <StyledDesks className="grid p-1 border rounded-md border-primaryLighter">
-          {desks.map((seat) => (
-            <span
-              key={seat}
-              className={`${
-                Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"
-              } m-1 rounded-md w-24 h-12`}
-            >
-              <button
-                value={seat}
-                disabled={occupied?.includes(seat) || !fixedView}
-                onClick={(e) => handleDeskSelection(e)}
-                className={`${
-                  occupied?.includes(seat)
-                    ? "bg-gray-200 cursor-not-allowed text-gray-500 "
-                    : `${
-                        fixedView &&
-                        "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
-                      } border-primary text-textColor`
-                } w-24 h-12 border rounded-md text-xs flex items-center justify-center font-bold`}
-              >
-                {seat}
-              </button>
-            </span>
-          ))}
-        </StyledDesks>
-
-        {!fixedView ? (
-          <UserInputForm
-            numberDesks={numberDesks}
-            numberColumns={numberColumns}
-            groupGapOne={groupGapOne}
-            groupGapTwo={groupGapTwo}
-            groupGapThree={groupGapThree}
-            groupGapFour={groupGapFour}
-            setNumberDesks={setNumberDesks}
-            setNumberColumns={setNumberColumns}
-            setGroupGapOne={setGroupGapOne}
-            setGroupGapTwo={setGroupGapTwo}
-            setGroupGapThree={setGroupGapThree}
-            setGroupGapFour={setGroupGapFour}
-          />
-        ) : (
-          <UserBookingFields
-            chosenDesk={chosenDesk}
-            setLoading={setLoading}
-            setFromTime={setFromTime}
-            setToTime={setToTime}
-            setOnDate={setOnDate}
-          />
+      {setupLoading && <div className="mt-10">
+        <i
+          class="fa fa-spinner fa-spin"
+          style={{ fontSize: "3.5rem", color: '#AD005C' }}
+        ></i>
+      </div>}
+      {showSetupSuccess && <SetupSuccess areaName={areaName}/>}
+      {!setupLoading && !showSetupSuccess&&(<>
+        {!fixedView && (
+          <div className="flex flex-col w-3/5 mt-8">
+            <h2 className="mb-4 text-4xl font-bold text-gray-700">
+              Set up an area
+            </h2>
+            <div className="w-full border-t-2 border-gray-300"></div>
+          </div>
         )}
-      </div>
+        {!fixedView ? (
+          <div className="flex w-3/5">
+            <AreaName areaName={areaName} setAreaName={setAreaName} setSetupLoading={setSetupLoading}></AreaName>
+          </div>
+        ) : (
+          <h2 className="text-xl font-bold text-textColor">{incomingAreaName}</h2>
+        )}
+
+        <div className="flex justify-between p-1 mt-3 min-w-60 max-w-90">
+          <StyledDesks className="grid p-1 border rounded-md border-primaryLighter">
+            {desks.map((seat) => (
+              <span
+                key={seat}
+                className={`${Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"
+                  } m-1 rounded-md w-20 h-11`}
+              >
+                <button
+                  value={seat}
+                  disabled={occupied?.includes(seat) || !fixedView}
+                  onClick={(e) => handleDeskSelection(e)}
+                  className={`${occupied?.includes(seat)
+                      ? "bg-gray-200 cursor-not-allowed text-gray-500 "
+                      : `${fixedView &&
+                      "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
+                      } border-primary text-textColor`
+                    } w-20 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
+                >
+                  {seat}
+                </button>
+              </span>
+            ))}
+          </StyledDesks>
+
+          {!fixedView ? (
+            <UserInputForm
+              numberDesks={numberDesks}
+              numberColumns={numberColumns}
+              groupGapOne={groupGapOne}
+              groupGapTwo={groupGapTwo}
+              groupGapThree={groupGapThree}
+              groupGapFour={groupGapFour}
+              setNumberDesks={setNumberDesks}
+              setNumberColumns={setNumberColumns}
+              setGroupGapOne={setGroupGapOne}
+              setGroupGapTwo={setGroupGapTwo}
+              setGroupGapThree={setGroupGapThree}
+              setGroupGapFour={setGroupGapFour}
+            />
+          ) : (
+            <UserBookingFields
+              chosenDesk={chosenDesk}
+              setLoading={setLoading}
+              setFromTime={setFromTime}
+              setToTime={setToTime}
+              setOnDate={setOnDate}
+            />
+          )}
+        </div>
+      </>)}
       {fixedView && (
         <BookingSummary
           chosenDesk={chosenDesk}
@@ -137,7 +153,7 @@ const DeskMap = ({
         />
       )}
 
-      {!chosenDesk && <Link to='/' className="w-24 px-3 py-1 mr-3 font-bold text-center border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:border-darkPink hover:text-white">
+      {!chosenDesk && !setupLoading && !showSetupSuccess&&<Link to='/' className="w-24 px-3 py-1 mr-3 font-bold text-center border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:border-darkPink hover:text-white">
         Cancel
       </Link>}
     </div>

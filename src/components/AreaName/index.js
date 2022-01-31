@@ -9,7 +9,7 @@ const StyledSave = styled.button`
   }
 `;
 
-const AreaName = ({ areaName, setAreaName }) => {
+const AreaName = ({ areaName, setAreaName, setSetupLoading }) => {
   const [showInput, setShowInput] = useState(true);
 
   const handleSubmit = (e) => {
@@ -60,7 +60,7 @@ const AreaName = ({ areaName, setAreaName }) => {
       </div>
 
       <div className="flex items-center">
-        <button className="w-24 px-3 py-1 font-bold text-white border-2 rounded-md border-midPink bg-midPink hover:bg-darkPink hover:border-darkPink">
+        <button onClick={() => setSetupLoading(true)}className="w-24 px-3 py-1 font-bold text-white border-2 rounded-md border-midPink bg-midPink hover:bg-darkPink hover:border-darkPink">
           Save
         </button>
         <Link
