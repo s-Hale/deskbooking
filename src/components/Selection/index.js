@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const Selection = () => {
   const buttonStyle =
-    "h-68 hover:bg-blue-100 cursor-pointer pt-8 pb-2 mx-3 border-2 border-gray-400 rounded-md w-60 flex flex-col items-center justify-between";
+    "h-68 hover:bg-primaryLighter cursor-pointer pt-8 pb-2 mx-3 border border-primary rounded-md w-60 flex flex-col items-center justify-between";
 
   return (
-    <div className="flex flex-col items-center justify-center mt-20">
+    <div className="flex flex-col items-center justify-center mt-8">
       <div className="flex flex-col w-3/5">
         <h2 className="mb-4 text-4xl font-bold text-gray-700">
           Desk reservation

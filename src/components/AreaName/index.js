@@ -23,24 +23,24 @@ const AreaName = ({ areaName, setAreaName }) => {
   return (
     <div className="flex items-center justify-between w-full mt-2">
       <div className="flex items-center">
-        <label className="text-gray-500 font-bold text-lg mr-3 my-2.5">
+        <label className="text-textColor font-bold text-lg mr-3 my-2.5">
           Area name:
         </label>
         {!showInput && (
-          <h2 className="text-xl font-bold text-cyan-800">{areaName}</h2>
+          <h2 className="text-xl font-bold text-textColor">{areaName}</h2>
         )}
         <form onSubmit={handleSubmit}>
           {showInput && (
             <input
               onChange={(e) => setAreaName(e.target.value)}
               value={areaName}
-              className="h-12 p-2 ml-2 text-lg border border-gray-500 w-60 rounded-xl"
+              className="h-12 p-2 ml-2 text-lg border-2 border-inputGray w-60 rounded-xl"
             ></input>
           )}
           {showInput && (
             <StyledSave
               type="submit"
-              className="ml-2 p-1.5 font-bold text-cyan-900"
+              className="ml-2 p-1.5 font-bold text-gray-500"
             >
               save
             </StyledSave>
@@ -58,10 +58,10 @@ const AreaName = ({ areaName, setAreaName }) => {
       </div>
 
       <div className="flex items-center">
-        <button className="w-24 px-3 py-1 font-bold text-white border-2 rounded-md border-cyan-800 bg-cyan-800 hover:bg-cyan-700 hover:border-cyan-700">
+        <button className="w-24 px-3 py-1 font-bold text-white border-2 rounded-md border-midPink bg-midPink hover:bg-darkPink hover:border-darkPink">
           Save
         </button>
-        <button className="w-24 px-3 py-1 ml-2 font-bold border-2 rounded-md border-cyan-700 text-cyan-700 hover:bg-blue-50">
+        <button className="w-24 px-3 py-1 ml-2 font-bold border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:text-white hover:border-darkPink">
           Cancel
         </button>
       </div>

@@ -57,7 +57,7 @@ const DeskMap = ({
   return (
     <div className="flex flex-col items-center">
       {!fixedView && (
-        <div className="flex flex-col w-3/5 mt-20">
+        <div className="flex flex-col w-3/5 mt-8">
           <h2 className="mb-4 text-4xl font-bold text-gray-700">
             Set up an area
           </h2>
@@ -69,16 +69,16 @@ const DeskMap = ({
           <AreaName areaName={areaName} setAreaName={setAreaName}></AreaName>
         </div>
       ) : (
-        <h2 className="text-xl font-bold text-cyan-800">{incomingAreaName}</h2>
+        <h2 className="text-xl font-bold text-textColor">{incomingAreaName}</h2>
       )}
 
       <div className="flex justify-between p-1 mt-3 min-w-60 max-w-90">
-        <StyledDesks className="grid p-1 border rounded-md border-cyan-800 border-opacity-60">
+        <StyledDesks className="grid p-1 border rounded-md border-primaryLighter">
           {desks.map((seat) => (
             <span
               key={seat}
               className={`${
-                Number(chosenDesk) === seat ? "bg-cyan-600" : "bg-blue-50"
+                Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"
               } m-1 rounded-md w-24 h-12`}
             >
               <button
@@ -90,8 +90,8 @@ const DeskMap = ({
                     ? "bg-gray-200 cursor-not-allowed text-gray-500 "
                     : `${
                         fixedView &&
-                        "hover:bg-cyan-600 hover:scale-105 hover:border-cyan-600 cursor-pointer"
-                      } border-gray-400 text-gray-800`
+                        "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
+                      } border-primary text-textColor`
                 }
                             w-24 h-12 border rounded-md text-xs flex items-center justify-center`}
               >
@@ -138,7 +138,7 @@ const DeskMap = ({
         />
       )}
 
-      <Link to="/" className="mt-4 text-lg font-bold text-cyan-800">
+      <Link to="/" className="mt-4 text-lg font-bold text-textLink">
         Back to selection
       </Link>
     </div>

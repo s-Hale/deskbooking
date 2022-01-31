@@ -7,10 +7,10 @@ const Success = ({ bookingDetails, areaName }) => {
   return (
     <>
       <div className="">
-        <h2 className="mb-4 text-4xl font-bold text-cyan-900">
+        <h2 className="mb-4 text-4xl font-bold text-textColor">
           Your booking was successful.
         </h2>
-        <p className="mb-6 text-lg font-bold text-cyan-800">
+        <p className="mb-6 text-lg font-bold text-textColor">
           Desk {chosenDesk} in {areaName}
           <br></br>
           {onDate && fromTime && toTime && (
@@ -22,7 +22,7 @@ const Success = ({ bookingDetails, areaName }) => {
           )}
         </p>
       </div>
-      <Link to="/" className="text-lg font-bold text-cyan-800">
+      <Link to="/" className="text-lg font-bold text-textLink">
         Back to selection
       </Link>
     </>

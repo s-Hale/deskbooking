@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const BookingAreaSelect = () => {
   const buttonStyle =
-    "cursor-pointer border-2 border-cyan-800 w-1/2 p-2 rounded-xl my-2 font-bold text-cyan-900 hover:bg-blue-50";
+    "cursor-pointer border-2 bg-primaryLightest border-primary text-textColor w-1/2 p-2 rounded-xl my-2 font-bold hover:bg-primaryLighter";
 
   return (
-    <div className="flex flex-col items-center justify-center mt-20">
+    <div className="flex flex-col items-center justify-center mt-8">
       <div className="flex flex-col w-3/5">
-        <h2 className="mb-4 text-4xl font-bold text-gray-700">
+        <h2 className="mb-4 text-4xl font-bold text-textColor">
           Book a workspace
         </h2>
         <div className="w-full border-t-2 border-gray-300"></div>
@@ -17,10 +17,10 @@ const BookingAreaSelect = () => {
       <div className="flex w-3/5 mb-16">
         <div className="flex flex-col justify-between w-1/2">
           <div>
-            <h2 className="mt-6 text-xl font-bold text-gray-700">
+            <h2 className="mt-6 text-xl font-bold text-textColor">
               Book a desk
             </h2>
-            <h2 className="text-gray-700">
+            <h2 className="text-textColor">
               Choose a desk in one of the following areas
             </h2>
           </div>
@@ -35,7 +35,7 @@ const BookingAreaSelect = () => {
               <div className={buttonStyle}>Research</div>
             </Link>
             <Link to="/create">
-              <div className="flex items-center mt-6 text-lg font-bold text-cyan-800">
+              <div className="flex items-center mt-6 text-lg font-bold text-midPink">
                 <i
                   class="fa fa-plus-square"
                   style={{ fontSize: "2rem", marginRight: "0.5rem" }}
@@ -47,7 +47,7 @@ const BookingAreaSelect = () => {
         </div>
 
         <div className="flex flex-col justify-between w-1/2">
-          <h2 className="mt-6 text-xl font-bold text-gray-700">
+          <h2 className="mt-6 text-xl font-bold text-textColor">
             Book a meeting room
           </h2>
           <h2 className="text-white">
@@ -66,7 +66,7 @@ const BookingAreaSelect = () => {
             </Link>
 
             <Link to="">
-              <div className="flex items-center mt-6 text-lg font-bold text-cyan-800">
+              <div className="flex items-center mt-6 text-lg font-bold text-midPink">
                 <i
                   class="fa fa-plus-square"
                   style={{ fontSize: "2rem", marginRight: "0.5rem" }}
@@ -77,7 +77,7 @@ const BookingAreaSelect = () => {
           </div>
         </div>
       </div>
-      <Link to="/" className="text-lg font-bold text-cyan-800">
+      <Link to="/" className="text-lg font-bold text-textLink">
         Back to selection
       </Link>
     </div>
