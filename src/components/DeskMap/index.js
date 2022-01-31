@@ -58,7 +58,7 @@ const DeskMap = ({
     <div className="flex flex-col items-center">
       {!fixedView && (
         <div className="flex flex-col w-3/5 mt-20">
-          <h2 className="mb-4 font-bold text-4xl text-gray-700">
+          <h2 className="mb-4 text-4xl font-bold text-gray-700">
             Set up an area
           </h2>
           <div className="w-full border-t-2 border-gray-300"></div>
@@ -69,11 +69,11 @@ const DeskMap = ({
           <AreaName areaName={areaName} setAreaName={setAreaName}></AreaName>
         </div>
       ) : (
-        <h2 className="text-cyan-800 font-bold text-xl">{incomingAreaName}</h2>
+        <h2 className="text-xl font-bold text-cyan-800">{incomingAreaName}</h2>
       )}
 
-      <div className=" mt-3 p-1 flex justify-between min-w-60 max-w-90">
-        <StyledDesks className="border border-cyan-800 border-opacity-60 grid rounded-md p-1">
+      <div className="flex justify-between p-1 mt-3 min-w-60 max-w-90">
+        <StyledDesks className="grid p-1 border rounded-md border-cyan-800 border-opacity-60">
           {desks.map((seat) => (
             <span
               key={seat}
@@ -138,7 +138,7 @@ const DeskMap = ({
         />
       )}
 
-      <Link to="/" className="font-bold text-lg text-cyan-800 mt-4">
+      <Link to="/" className="mt-4 text-lg font-bold text-cyan-800">
         Back to selection
       </Link>
     </div>
