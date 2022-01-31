@@ -153,9 +153,9 @@ const DeskMap = ({
         />
       )}
 
-      {!chosenDesk && !setupLoading && !showSetupSuccess&&<Link to='/' className="w-24 px-3 py-1 mr-3 font-bold text-center border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:border-darkPink hover:text-white">
+      {/* {!chosenDesk && !setupLoading && !showSetupSuccess&&<Link to='/' className="w-24 px-3 py-1 mr-3 font-bold text-center border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:border-darkPink hover:text-white">
         Cancel
-      </Link>}
+      </Link>} */}
     </div>
   );
 };

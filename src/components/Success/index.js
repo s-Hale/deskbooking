@@ -10,7 +10,7 @@ const Success = ({ bookingDetails, areaName }) => {
         <h2 className="mb-4 text-4xl font-bold text-textColor">
           Your booking was successful.
         </h2>
-        <p className="p-2 mb-6 text-lg border-2 rounded-md text-textColor border-primaryLighter bg-primaryLightest">
+        <p className="p-3 mb-6 text-lg border-2 rounded-md text-textColor border-primaryLighter bg-primaryLightest">
           You have reserved <span className="font-bold">Desk {chosenDesk}</span> in <span className="font-bold">{areaName}</span>
           <br></br>
           {onDate && fromTime && toTime && (
