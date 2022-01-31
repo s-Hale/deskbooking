@@ -9,7 +9,7 @@ const UserBookingFields = ({ setFromTime, setToTime, setOnDate }) => (
       onChange={(e) => {
         setOnDate(e.target.value);
       }}
-      className="p-2 border-2 rounded-md cursor-pointer border-inputGray text-textColor"
+      className="p-2 font-bold border-2 rounded-md cursor-pointer border-inputGray text-textColor"
       type="date"
     />
     <label className="mt-2 font-bold text-textColor" for="from-time">
@@ -19,7 +19,7 @@ const UserBookingFields = ({ setFromTime, setToTime, setOnDate }) => (
       onChange={(e) => {
         setFromTime(e.target.value);
       }}
-      className="p-2 border-2 rounded-md cursor-pointer border-inputGray text-textColor"
+      className="p-2 font-bold border-2 rounded-md cursor-pointer border-inputGray text-textColor"
       type="time"
     />
     <label className="mt-2 font-bold text-textColor" for="to-time">
@@ -29,7 +29,7 @@ const UserBookingFields = ({ setFromTime, setToTime, setOnDate }) => (
       onChange={(e) => {
         setToTime(e.target.value);
       }}
-      className="p-2 border-2 rounded-md cursor-pointer border-inputGray text-textColor"
+      className="p-2 font-bold border-2 rounded-md cursor-pointer border-inputGray text-textColor"
       type="time"
     />
   </div>

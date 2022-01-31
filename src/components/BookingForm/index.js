@@ -59,7 +59,7 @@ const BookingForm = () => {
         <div className="">
           <i
             class="fa fa-spinner fa-spin"
-            style={{ fontSize: "3.5rem", color: "darkcyan" }}
+            style={{ fontSize: "3.5rem", color: '#AD005C' }}
           ></i>
         </div>
       )}

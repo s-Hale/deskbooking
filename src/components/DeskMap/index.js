@@ -92,8 +92,7 @@ const DeskMap = ({
                         fixedView &&
                         "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
                       } border-primary text-textColor`
-                }
-                            w-24 h-12 border rounded-md text-xs flex items-center justify-center`}
+                } w-24 h-12 border rounded-md text-xs flex items-center justify-center font-bold`}
               >
                 {seat}
               </button>
@@ -138,9 +137,9 @@ const DeskMap = ({
         />
       )}
 
-      <Link to="/" className="mt-4 text-lg font-bold text-textLink">
-        Back to selection
-      </Link>
+      {!chosenDesk && <Link to='/' className="w-24 px-3 py-1 mr-3 font-bold text-center border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:border-darkPink hover:text-white">
+        Cancel
+      </Link>}
     </div>
   );
 };

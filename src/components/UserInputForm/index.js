@@ -40,7 +40,7 @@ const UserInputForm = ({
             min="2"
             max="75"
             onChange={(e) => setNumberDesks(e.target.value)}
-            className="w-12 p-1 text-center border-2 rounded-md border-inputGray"
+            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
           ></NoArrowInput>
         </div>
         <div className={inputPairStyling}>
@@ -51,7 +51,7 @@ const UserInputForm = ({
             max="10"
             value={numberColumns}
             onChange={(e) => setNumberColumns(e.target.value)}
-            className="w-12 p-1 text-center border-2 rounded-md border-inputGray"
+            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
           ></NoArrowInput>
         </div>
       </div>
@@ -62,7 +62,7 @@ const UserInputForm = ({
             type="number"
             value={groupGapOne}
             onChange={(e) => setGroupGapOne(e.target.value)}
-            className="w-12 p-1 text-center border-2 rounded-md border-inputGray"
+            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
           ></NoArrowInput>
         </div>
         <div className={inputPairStyling}>
@@ -71,7 +71,7 @@ const UserInputForm = ({
             type="number"
             value={groupGapTwo}
             onChange={(e) => setGroupGapTwo(e.target.value)}
-            className="w-12 p-1 text-center border-2 rounded-md border-inputGray"
+            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
           ></NoArrowInput>
         </div>
       </div>
@@ -93,7 +93,7 @@ const UserInputForm = ({
               type="number"
               value={groupGapThree}
               onChange={(e) => setGroupGapThree(e.target.value)}
-              className="w-12 p-1 text-center border-2 rounded-md border-inputGray"
+              className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
             ></NoArrowInput>
           </div>
           <div className={inputPairStyling}>
@@ -102,7 +102,7 @@ const UserInputForm = ({
               type="number"
               value={groupGapFour}
               onChange={(e) => setGroupGapFour(e.target.value)}
-              className="w-12 p-1 text-center border-2 rounded-md border-inputGray"
+              className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
             ></NoArrowInput>
           </div>
         </div>

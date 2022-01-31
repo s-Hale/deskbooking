@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 
 const StyledSave = styled.button`
   :hover {
@@ -34,7 +36,7 @@ const AreaName = ({ areaName, setAreaName }) => {
             <input
               onChange={(e) => setAreaName(e.target.value)}
               value={areaName}
-              className="h-12 p-2 ml-2 text-lg border-2 border-inputGray w-60 rounded-xl"
+              className="h-12 p-2 ml-2 text-lg font-bold border-2 border-inputGray w-60 rounded-xl"
             ></input>
           )}
           {showInput && (
@@ -61,9 +63,11 @@ const AreaName = ({ areaName, setAreaName }) => {
         <button className="w-24 px-3 py-1 font-bold text-white border-2 rounded-md border-midPink bg-midPink hover:bg-darkPink hover:border-darkPink">
           Save
         </button>
-        <button className="w-24 px-3 py-1 ml-2 font-bold border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:text-white hover:border-darkPink">
+        <Link
+          to="/"
+          className="w-24 px-3 py-1 ml-2 font-bold text-center border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:text-white hover:border-darkPink">
           Cancel
-        </button>
+        </Link>
       </div>
     </div>
   );
