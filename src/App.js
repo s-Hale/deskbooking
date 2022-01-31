@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const App = () => {
   return (
     <Router>
-      <div className="h-screen App">
+      <div className="h-screen App font-galano">
         <header className="">
         <img className="mb-1 opacity-90" src={HeaderMock} alt="desk" />
         </header>

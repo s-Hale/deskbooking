@@ -11,7 +11,10 @@ module.exports = {
         textColor: '#333',
         inputGray: '#A1A9B3',
         textLink: '#0057AD'
-      }
+      },
+      fontFamily: {
+        galano: ['galano', 'sans-serif']
+      },
     },
     minWidth: {
       '60': '60%',
