@@ -54,7 +54,7 @@ const BookingForm = () => {
     setTimeout(() => {
       setLoading(false);
       setShowSuccess(true);
-    }, 2000);
+    }, 1500);
   }
 
   return (

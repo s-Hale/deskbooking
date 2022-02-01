@@ -57,7 +57,7 @@ const DeskMap = ({
     setTimeout(() => {
       setSetupLoading(false);
       setShowSetupSuccess(true);
-    }, 2000);
+    }, 1500);
   }
 
   const desks =
@@ -108,7 +108,7 @@ const DeskMap = ({
                     }
                   }
                   className={`${occupied?.includes(seat)
-                      ? "bg-gray-200 text-gray-500 "
+                      ? "bg-gray-200 text-gray-500 hover:bg-gray-300"
                       : `${fixedView &&
                       "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
                       } border-primary text-textColor`
