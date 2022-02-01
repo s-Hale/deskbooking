@@ -5,7 +5,6 @@ import BookingSummary from "../BookingSummary";
 import AreaName from "../AreaName";
 import SetupSuccess from "../SetupSuccess/";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const DeskMap = ({
   incomingAreaName,
@@ -13,6 +12,7 @@ const DeskMap = ({
   fixedView,
   setLoading,
   setBookingDetails,
+  setOpenEmployeeModal
 }) => {
   const [numberDesks, setNumberDesks] = useState(24);
   const [numberColumns, setNumberColumns] = useState(
@@ -30,7 +30,7 @@ const DeskMap = ({
   const [fromTime, setFromTime] = useState("");
   const [toTime, setToTime] = useState("");
   const [setupLoading, setSetupLoading] = useState(false);
-  const [showSetupSuccess, setShowSetupSuccess] = useState(false)
+  const [showSetupSuccess, setShowSetupSuccess] = useState(false);
 
   const StyledDesks = styled.div`
     & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
@@ -66,13 +66,14 @@ const DeskMap = ({
 
   return (
     <div className="flex flex-col items-center">
+
       {setupLoading && <div className="mt-10">
         <i
           class="fa fa-spinner fa-spin"
           style={{ fontSize: "3.5rem", color: '#AD005C' }}
         ></i>
       </div>}
-      {showSetupSuccess && <SetupSuccess areaName={areaName}/>}
+      {showSetupSuccess && <SetupSuccess areaName={areaName} />}
       {!setupLoading && !showSetupSuccess&&(<>
         {!fixedView && (
           <div className="flex flex-col w-3/5 mt-8">
@@ -100,14 +101,18 @@ const DeskMap = ({
               >
                 <button
                   value={seat}
-                  disabled={occupied?.includes(seat) || !fixedView}
-                  onClick={(e) => handleDeskSelection(e)}
+                  onClick={(e) => {
+                    if(fixedView && !occupied?.includes(seat)) handleDeskSelection(e)
+                    if (fixedView && occupied?.includes(seat)) setOpenEmployeeModal(true)
+                    if (!fixedView) return;
+                    }
+                  }
                   className={`${occupied?.includes(seat)
-                      ? "bg-gray-200 cursor-not-allowed text-gray-500 "
+                      ? "bg-gray-200 text-gray-500 "
                       : `${fixedView &&
                       "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
                       } border-primary text-textColor`
-                    } w-20 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
+                    } ${!fixedView&& 'cursor-default'} w-20 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
                 >
                   {seat}
                 </button>
@@ -152,10 +157,6 @@ const DeskMap = ({
           setBookingDetails={setBookingDetails}
         />
       )}
-
-      {/* {!chosenDesk && !setupLoading && !showSetupSuccess&&<Link to='/' className="w-24 px-3 py-1 mr-3 font-bold text-center border-2 rounded-md border-midPink text-midPink hover:bg-darkPink hover:border-darkPink hover:text-white">
-        Cancel
-      </Link>} */}
     </div>
   );
 };

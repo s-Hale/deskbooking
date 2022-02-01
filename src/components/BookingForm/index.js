@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import DeskMap from "../DeskMap/index";
 import Success from "../Success/index";
 import { useLocation } from "react-router-dom";
+import EmployeeModal from '../EmployeeModal';
+
 
 const BookingForm = () => {
   const location = useLocation();
@@ -9,6 +11,8 @@ const BookingForm = () => {
   const [loading, setLoading] = useState(false);
   const [bookingDetails, setBookingDetails] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
+  const [openEmployeeModal, setOpenEmployeeModal] = useState(false);
+
 
   const dataToSend = () => {
     const mockDataSales = {
@@ -69,6 +73,8 @@ const BookingForm = () => {
       {!loading && !showSuccess && (
         <>
           <div className="flex flex-col w-3/5">
+          {openEmployeeModal && <EmployeeModal setOpenEmployeeModal={setOpenEmployeeModal}/>}
+
             <h2 className="mb-4 text-4xl font-bold text-gray-700">
               Book a desk
             </h2>
@@ -81,6 +87,7 @@ const BookingForm = () => {
               fixedView
               setLoading={setLoading}
               setBookingDetails={setBookingDetails}
+              setOpenEmployeeModal={setOpenEmployeeModal}
             />
           </div>
         </>
