@@ -40,7 +40,7 @@ const UserInputForm = ({
             min="2"
             max="75"
             onChange={(e) => setNumberDesks(e.target.value)}
-            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
+            className="p-1 font-bold text-center border-2 rounded-md w-14 border-inputGray"
           ></NoArrowInput>
         </div>
         <div className={inputPairStyling}>
@@ -51,7 +51,7 @@ const UserInputForm = ({
             max="10"
             value={numberColumns}
             onChange={(e) => setNumberColumns(e.target.value)}
-            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
+            className="w-16 p-1 font-bold text-center border-2 rounded-md border-inputGray"
           ></NoArrowInput>
         </div>
       </div>
