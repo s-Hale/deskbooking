@@ -18,6 +18,7 @@ const DeskMap = ({
   const [numberColumns, setNumberColumns] = useState(
     mockData?.numberColumns || 8
   );
+
   const [groupGapOne, setGroupGapOne] = useState(mockData?.groupGapOne || 2);
   const [groupGapTwo, setGroupGapTwo] = useState(mockData?.groupGapTwo || 6);
   const [groupGapThree, setGroupGapThree] = useState(
@@ -31,6 +32,9 @@ const DeskMap = ({
   const [toTime, setToTime] = useState("");
   const [setupLoading, setSetupLoading] = useState(false);
   const [showSetupSuccess, setShowSetupSuccess] = useState(false);
+
+  const howManyRows = Math.ceil(numberDesks / numberColumns);
+
 
   const StyledDesks = styled.div`
     & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
@@ -64,6 +68,7 @@ const DeskMap = ({
     mockData?.desks || Array.from({ length: numberDesks }, (_, i) => i);
   const occupied = mockData?.occupied;
 
+
   return (
     <div className="flex flex-col items-center">
 
@@ -90,14 +95,14 @@ const DeskMap = ({
         ) : (
           <h2 className="text-xl font-bold text-textColor">{incomingAreaName}</h2>
         )}
-
+        {/* <p className="font-bold">With {numberDesks} desks and {numberColumns} cols there must be {howManyRows} rows</p> */}
         <div className="flex justify-between p-1 mt-3 min-w-60 max-w-90">
           <StyledDesks className="grid p-1 border rounded-md border-primaryLighter">
             {desks.map((seat) => (
               <span
                 key={seat}
                 className={`${Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"
-                  } m-1 rounded-md w-20 h-11`}
+                  } m-0.5 rounded-md w-11 h-11`}
               >
                 <button
                   value={seat}
@@ -112,7 +117,7 @@ const DeskMap = ({
                       : `${fixedView &&
                       "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
                       } border-primary text-textColor`
-                    } ${!fixedView&& 'cursor-default'} w-20 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
+                    } ${!fixedView&& 'cursor-default'} w-11 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
                 >
                   {seat}
                 </button>
