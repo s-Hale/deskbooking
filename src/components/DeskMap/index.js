@@ -28,6 +28,9 @@ const DeskMap = ({
   const [chosenDesk, setChosenDesk] = useState();
   const [rowGapOne, setRowGapOne] = useState();
   const [rowGapTwo, setRowGapTwo] = useState();
+  const [rowGapThree, setRowGapThree] = useState();
+  const [rowGapFour, setRowGapFour] = useState();
+  const [deskMargin, setDeskMargin] = useState(2);
   const [areaName, setAreaName] = useState(incomingAreaName || "");
   const [onDate, setOnDate] = useState("");
   const [fromTime, setFromTime] = useState("");
@@ -37,6 +40,8 @@ const DeskMap = ({
 
   const firstInRowOptionOne = (rowGapOne - 1) * numberColumns + 1;
   const firstInRowOptionTwo = (rowGapTwo - 1) * numberColumns + 1;
+  const firstInRowOptionThree = (rowGapThree - 1) * numberColumns + 1;
+  const firstInRowOptionFour = (rowGapFour - 1) * numberColumns + 1;
 
   const StyledDesks = styled.div`
     & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
@@ -51,22 +56,25 @@ const DeskMap = ({
     & > span:nth-of-type(${numberColumns}n + ${groupGapFour}) {
       margin-right: 26px;
     }
-
     & > span:nth-child(${firstInRowOptionOne}) {
-    margin-bottom: 20px
+    margin-bottom: 26px
     }
-
     & > span:nth-child(${firstInRowOptionTwo}) {
-    margin-bottom: 20px
+    margin-bottom: 26px
     }
-
+    & > span:nth-child(${firstInRowOptionThree}) {
+      margin-bottom: 26px
+      }
+      & > span:nth-child(${firstInRowOptionFour}) {
+      margin-bottom: 26px
+      }
     grid-template-columns: repeat(${numberColumns}, min-content);
   `;
 
   const StyledDeskSpan = styled.span`
     width: 5rem;
     height: 2.75rem;
-    margin: 3px;
+    margin: ${deskMargin}px;
     border-radius: 0.375rem;
   `;
 
@@ -112,8 +120,8 @@ const DeskMap = ({
         ) : (
           <h2 className="text-xl font-bold text-textColor">{incomingAreaName}</h2>
         )}
-        <div className="flex justify-between p-1 mt-3 min-w-60 max-w-90">
-          <StyledDesks className="grid p-1 border rounded-md border-primaryLighter">
+        <div className="flex items-start p-1 mt-3 min-w-60 max-w-90">
+          <StyledDesks className="grid p-1 rounded-md border-primaryLighter">
             {desks.map((seat) => (
               <StyledDeskSpan
                 key={seat}
@@ -144,6 +152,8 @@ const DeskMap = ({
             <UserInputForm
               numberDesks={numberDesks}
               numberColumns={numberColumns}
+              deskMargin={deskMargin}
+              setDeskMargin={setDeskMargin}
               groupGapOne={groupGapOne}
               groupGapTwo={groupGapTwo}
               groupGapThree={groupGapThree}
@@ -152,6 +162,10 @@ const DeskMap = ({
               setRowGapOne={setRowGapOne}
               rowGapTwo={rowGapTwo}
               setRowGapTwo={setRowGapTwo}
+              rowGapThree={rowGapThree}
+              setRowGapThree={setRowGapThree}
+              rowGapFour={rowGapFour}
+              setRowGapFour={setRowGapFour}
               setNumberDesks={setNumberDesks}
               setNumberColumns={setNumberColumns}
               setGroupGapOne={setGroupGapOne}
