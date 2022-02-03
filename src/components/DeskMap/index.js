@@ -102,7 +102,7 @@ const DeskMap = ({
               <span
                 key={seat}
                 className={`${Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"
-                  } m-0.5 rounded-md w-11 h-11`}
+                  } m-0.5 rounded-md w-20 h-11`}
               >
                 <button
                   value={seat}
@@ -117,7 +117,7 @@ const DeskMap = ({
                       : `${fixedView &&
                       "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
                       } border-primary text-textColor`
-                    } ${!fixedView&& 'cursor-default'} w-11 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
+                    } ${!fixedView&& 'cursor-default'} w-20 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
                 >
                   {seat}
                 </button>
