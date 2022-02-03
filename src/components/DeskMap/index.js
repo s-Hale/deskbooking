@@ -26,6 +26,8 @@ const DeskMap = ({
   );
   const [groupGapFour, setGroupGapFour] = useState(mockData?.groupGapFour || 0);
   const [chosenDesk, setChosenDesk] = useState();
+  const [rowGapOne, setRowGapOne] = useState();
+  const [rowGapTwo, setRowGapTwo] = useState();
   const [areaName, setAreaName] = useState(incomingAreaName || "");
   const [onDate, setOnDate] = useState("");
   const [fromTime, setFromTime] = useState("");
@@ -33,8 +35,8 @@ const DeskMap = ({
   const [setupLoading, setSetupLoading] = useState(false);
   const [showSetupSuccess, setShowSetupSuccess] = useState(false);
 
-  const howManyRows = Math.ceil(numberDesks / numberColumns);
-
+  const firstInRowOptionOne = (rowGapOne - 1) * numberColumns + 1;
+  const firstInRowOptionTwo = (rowGapTwo - 1) * numberColumns + 1;
 
   const StyledDesks = styled.div`
     & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
@@ -50,7 +52,22 @@ const DeskMap = ({
       margin-right: 26px;
     }
 
+    & > span:nth-child(${firstInRowOptionOne}) {
+    margin-bottom: 20px
+    }
+
+    & > span:nth-child(${firstInRowOptionTwo}) {
+    margin-bottom: 20px
+    }
+
     grid-template-columns: repeat(${numberColumns}, min-content);
+  `;
+
+  const StyledDeskSpan = styled.span`
+    width: 5rem;
+    height: 2.75rem;
+    margin: 3px;
+    border-radius: 0.375rem;
   `;
 
   const handleDeskSelection = (e) => {
@@ -95,14 +112,12 @@ const DeskMap = ({
         ) : (
           <h2 className="text-xl font-bold text-textColor">{incomingAreaName}</h2>
         )}
-        {/* <p className="font-bold">With {numberDesks} desks and {numberColumns} cols there must be {howManyRows} rows</p> */}
         <div className="flex justify-between p-1 mt-3 min-w-60 max-w-90">
           <StyledDesks className="grid p-1 border rounded-md border-primaryLighter">
             {desks.map((seat) => (
-              <span
+              <StyledDeskSpan
                 key={seat}
-                className={`${Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"
-                  } m-0.5 rounded-md w-20 h-11`}
+                className={`${Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"}`}
               >
                 <button
                   value={seat}
@@ -121,7 +136,7 @@ const DeskMap = ({
                 >
                   {seat}
                 </button>
-              </span>
+              </StyledDeskSpan>
             ))}
           </StyledDesks>
 
@@ -133,6 +148,10 @@ const DeskMap = ({
               groupGapTwo={groupGapTwo}
               groupGapThree={groupGapThree}
               groupGapFour={groupGapFour}
+              rowGapOne={rowGapOne}
+              setRowGapOne={setRowGapOne}
+              rowGapTwo={rowGapTwo}
+              setRowGapTwo={setRowGapTwo}
               setNumberDesks={setNumberDesks}
               setNumberColumns={setNumberColumns}
               setGroupGapOne={setGroupGapOne}

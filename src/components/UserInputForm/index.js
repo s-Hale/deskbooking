@@ -17,6 +17,10 @@ const UserInputForm = ({
   setNumberDesks,
   numberColumns,
   setNumberColumns,
+  rowGapOne,
+  setRowGapOne,
+  rowGapTwo,
+  setRowGapTwo,
   groupGapOne,
   setGroupGapOne,
   groupGapTwo,
@@ -71,6 +75,26 @@ const UserInputForm = ({
             type="number"
             value={groupGapTwo}
             onChange={(e) => setGroupGapTwo(e.target.value)}
+            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
+          ></NoArrowInput>
+        </div>
+      </div>
+      <div className="flex items-center justify-between mt-2">
+        <div className={inputPairStyling}>
+          <p className="font-bold text-textColor">Insert space at row</p>
+          <NoArrowInput
+            type="number"
+            value={rowGapOne}
+            onChange={(e) => setRowGapOne(e.target.value)}
+            className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
+          ></NoArrowInput>
+        </div>
+        <div className={inputPairStyling}>
+          <p className="font-bold text-textColor">Insert space at row</p>
+          <NoArrowInput
+            type="number"
+            value={rowGapTwo}
+            onChange={(e) => setRowGapTwo(e.target.value)}
             className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
           ></NoArrowInput>
         </div>
