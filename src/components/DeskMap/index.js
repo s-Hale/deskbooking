@@ -26,11 +26,11 @@ const DeskMap = ({
   );
   const [groupGapFour, setGroupGapFour] = useState(mockData?.groupGapFour || 0);
   const [chosenDesk, setChosenDesk] = useState();
-  const [rowGapOne, setRowGapOne] = useState();
-  const [rowGapTwo, setRowGapTwo] = useState();
-  const [rowGapThree, setRowGapThree] = useState();
-  const [rowGapFour, setRowGapFour] = useState();
-  const [deskMargin, setDeskMargin] = useState(2);
+  const [rowGapOne, setRowGapOne] = useState(mockData?.rowGapOne || 0);
+  const [rowGapTwo, setRowGapTwo] = useState(mockData?.rowGapTwo || 0);
+  const [rowGapThree, setRowGapThree] = useState(mockData?.rowGapThree || 0);
+  const [rowGapFour, setRowGapFour] = useState(mockData?.rowGapFour || 0);
+  const [deskMargin, setDeskMargin] = useState(mockData?.deskMargin || 2);
   const [areaName, setAreaName] = useState(incomingAreaName || "");
   const [onDate, setOnDate] = useState("");
   const [fromTime, setFromTime] = useState("");
@@ -42,6 +42,9 @@ const DeskMap = ({
   const firstInRowOptionTwo = (rowGapTwo - 1) * numberColumns + 1;
   const firstInRowOptionThree = (rowGapThree - 1) * numberColumns + 1;
   const firstInRowOptionFour = (rowGapFour - 1) * numberColumns + 1;
+  const [deskWidth, setDeskWidth] = useState(5);
+  const [deskHeight, setDeskHeight] = useState(2.75);
+
 
   const StyledDesks = styled.div`
     & > span:nth-of-type(${numberColumns}n + ${groupGapOne}) {
@@ -72,12 +75,21 @@ const DeskMap = ({
   `;
 
   const StyledDeskSpan = styled.span`
-    width: 5rem;
-    height: 2.75rem;
+    width: ${deskWidth}rem;
+    height: ${deskHeight}rem;
     margin: ${deskMargin}px;
     border-radius: 0.375rem;
   `;
 
+  const StyledButton = styled.button`
+  width: ${deskWidth}rem;
+  height: ${deskHeight}rem;
+  `;
+
+  const rotateDesk = () => {
+    setDeskWidth(deskHeight);
+    setDeskHeight(deskWidth);
+  }
   const handleDeskSelection = (e) => {
     setChosenDesk(e.target.value);
   };
@@ -92,7 +104,6 @@ const DeskMap = ({
   const desks =
     mockData?.desks || Array.from({ length: numberDesks }, (_, i) => i);
   const occupied = mockData?.occupied;
-
 
   return (
     <div className="flex flex-col items-center">
@@ -120,14 +131,14 @@ const DeskMap = ({
         ) : (
           <h2 className="text-xl font-bold text-textColor">{incomingAreaName}</h2>
         )}
-        <div className="flex items-start p-1 mt-3 min-w-60 max-w-90">
+        <div className="flex items-start justify-between max-w-full p-1 mt-3 min-w-fit">
           <StyledDesks className="grid p-1 rounded-md border-primaryLighter">
             {desks.map((seat) => (
               <StyledDeskSpan
                 key={seat}
                 className={`${Number(chosenDesk) === seat ? "bg-primary" : "bg-primaryLightest"}`}
               >
-                <button
+                <StyledButton
                   value={seat}
                   onClick={(e) => {
                     if(fixedView && !occupied?.includes(seat)) handleDeskSelection(e)
@@ -140,16 +151,18 @@ const DeskMap = ({
                       : `${fixedView &&
                       "hover:bg-primaryLighter hover:scale-105 hover:border-primary cursor-pointer"
                       } border-primary text-textColor`
-                    } ${!fixedView&& 'cursor-default'} w-20 h-11 border rounded-md text-xs flex items-center justify-center font-bold`}
+                    } ${!fixedView&& 'cursor-default'} border rounded-md text-xs flex items-center justify-center font-bold`}
                 >
                   {seat}
-                </button>
+                </StyledButton>
               </StyledDeskSpan>
             ))}
           </StyledDesks>
 
+
           {!fixedView ? (
             <UserInputForm
+              rotateDesk={rotateDesk}
               numberDesks={numberDesks}
               numberColumns={numberColumns}
               deskMargin={deskMargin}

@@ -13,6 +13,7 @@ const NoArrowInput = styled.input`
 `;
 
 const UserInputForm = ({
+  rotateDesk,
   numberDesks,
   setNumberDesks,
   numberColumns,
@@ -58,13 +59,17 @@ const UserInputForm = ({
           <NoArrowInput
             type="number"
             min="1"
-            max="10"
+            max="12"
             value={numberColumns}
             onChange={(e) => setNumberColumns(e.target.value)}
             className="w-16 p-1 font-bold text-center border-2 rounded-md border-inputGray"
           ></NoArrowInput>
         </div>
+
       </div>
+      <button onClick={rotateDesk} className="flex items-center w-2/5 px-1 my-1 border rounded-md cursor-pointer border-primaryLightest bg-primaryLightest hover:border-primaryLighter hover:bg-primaryLighter">
+      <i class="fa fa-undo" style={{fontSize: "22px", color: '#333' }}></i><span className="ml-2 font-bold text-textColor">Rotate desks</span>
+          </button>
       <div className="flex items-center justify-between mt-2">
         <div className={inputPairStyling}>
           <p className="font-bold text-textColor">Insert space at column</p>
@@ -114,9 +119,6 @@ const UserInputForm = ({
         </button>
       </div>
 
-
-
-
       {extraColumns && (
         <>
   <div className="flex items-center justify-between mt-2">
@@ -163,22 +165,15 @@ const UserInputForm = ({
 <div className="flex items-center justify-between mt-2">
 <div className={inputPairStyling}>
   <p className="font-bold text-textColor">Space between desks</p>
-  <NoArrowInput
+    <NoArrowInput
+      min="0"
+      max="4"
     type="number"
     value={deskMargin}
     onChange={(e) => setDeskMargin(e.target.value)}
     className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
   ></NoArrowInput>
 </div>
-{/* <div className={inputPairStyling}>
-  <p className="font-bold text-textColor">Insert space at row</p>
-  <NoArrowInput
-    type="number"
-    value={rowGapFour}
-    onChange={(e) => setRowGapFour(e.target.value)}
-    className="w-12 p-1 font-bold text-center border-2 rounded-md border-inputGray"
-  ></NoArrowInput>
-</div> */}
           </div>
           </>
       )}

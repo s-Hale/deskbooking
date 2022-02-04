@@ -21,18 +21,22 @@ const BookingForm = () => {
       numberColumns: 4,
       groupGapOne: 2,
       groupGapTwo: 0,
+      rowGapOne: 2,
+      deskMargin: 4
     };
 
     const mockDataMarketing = {
       desks: [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-        20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36
+        20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
       ],
       occupied: [8, 9, 12, 20, 27, 32, 33, 14, 15, 22, 23],
       numberColumns: 8,
       groupGapOne: 2,
       groupGapTwo: 4,
       groupGapThree: 5,
+      rowGapOne: 2,
+      rowGapTwo: 4
     };
 
     const mockDataResearch = {
@@ -44,6 +48,7 @@ const BookingForm = () => {
       numberColumns: 5,
       groupGapOne: 2,
       groupGapTwo: 3,
+      rowGapOne: 2
     };
 
     if (areaName === "Sales") return mockDataSales;
