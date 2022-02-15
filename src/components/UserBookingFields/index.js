@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserBookingFields = ({ setFromTime, setToTime, setOnDate }) => (
-  <div className="flex flex-col p-2 ml-2 border border-blue-500 w-96">
+  <div className="flex flex-col px-2 ml-2 w-96">
     <label className="font-bold text-textColor" for="on-date">
       When
     </label>
