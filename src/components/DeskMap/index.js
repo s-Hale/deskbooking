@@ -102,7 +102,9 @@ const DeskMap = ({
 
   const desks =
     mockData?.desks || Array.from({ length: numberDesks }, (_, i) => i);
+
   const occupied = mockData?.occupied;
+  const isOccupied = (seat) => occupied?.includes(seat);
 
   return (
     <div className="flex flex-col items-center">
@@ -156,14 +158,14 @@ const DeskMap = ({
                   <StyledButton
                     value={seat}
                     onClick={(e) => {
-                      if (fixedView && !occupied?.includes(seat))
+                      if (fixedView && !isOccupied(seat))
                         handleDeskSelection(e);
-                      if (fixedView && occupied?.includes(seat))
+                      if (fixedView && isOccupied(seat))
                         setOpenEmployeeModal(true);
                       if (!fixedView) return;
                     }}
                     className={`${
-                      occupied?.includes(seat)
+                      isOccupied(seat)
                         ? "bg-gray-200 text-gray-500 hover:bg-gray-300"
                         : `${
                             fixedView &&
